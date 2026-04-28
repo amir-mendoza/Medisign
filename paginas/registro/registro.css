@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', poppins, sans-serif;
+}
+
+body {
+    background-color: #f0fafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* CONTENEDOR PRINCIPAL CON BORDE AZUL */
+.outer-frame {
+    width: 95vw;
+    max-width: 1200px;
+    height: 90vh;
+    border: 2px solid #007bff;
+    border-radius: 50px;
+    position: relative;
+    /* Usamos la imagen que me pasaste como fondo principal */
+    background-image: url('/imagenes/imgRegistro/DocReg.png'); 
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end; /* Empuja el contenido a la derecha */
+    align-items: center;      /* Lo centra verticalmente */
+    padding-right: 5%;         /* Espacio desde el borde derecho */
+    overflow: hidden;
+}
+
+.back-btn {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #004d40;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ÁREA DE CONTENIDO (Título + Caja Blanca) */
+.content-wrapper {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinea el título y la caja a la derecha */
+    gap: 20px;
+}
+
+.header-text {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.header-text h1 {
+    color: #003d33;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.header-text p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* LA CAJA DE REGISTRO DUAL */
+.registration-card {
+    background: white;
+    width: 100%;
+    max-width: 750px;
+    border-radius: 30px;
+    display: flex;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+/* Lado Izquierdo: Formulario */
+.form-side {
+    flex: 1.2;
+    padding: 40px;
+}
+
+.form-side h2 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.input-box {
+    margin-bottom: 15px;
+}
+
+.input-box label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.btn-submit {
+    width: 100%;
+    background: #004d40;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Lado Derecho: Facial */
+.facial-side {
+    flex: 1;
+    background: #3ca197;
+    padding: 40px 20px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.facial-side h3 { font-size: 1rem; margin-bottom: 5px; }
+.facial-side p { font-size: 0.75rem; margin-bottom: 20px; opacity: 0.9; }
+
+/* Cuadro de Reconocimiento */
+.face-scanner {
+    width: 140px;
+    height: 140px;
+    background: white;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #4a1e1d; /* El borde oscuro del visor */
+}
+
+/* Lista de Estados */
+.status-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.status-pill {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-pill::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
