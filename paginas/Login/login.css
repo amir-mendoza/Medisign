@@ -1,0 +1,130 @@
+/*Ajusto determinado*/
+.centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; 
+  width: 100%;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  
+}
+
+.logo{
+    width: 30%;
+    margin-bottom: 0px;
+}
+
+
+
+/*contenedores*/
+.mitad {
+  width: 50%;  
+  height: 100%; 
+}
+
+/*Izquierda*/
+.container-izquierda {
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.imagen-doctora {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+
+/*Derecha*/
+.container-derecha {
+  background-color: rgb(255, 255, 255);
+  flex-direction: column;
+  padding-bottom: 3%;
+}
+
+.container-facil{
+      border: 2px solid black;
+      border-radius: 5px;
+      flex-direction: column;
+      width: 70%;
+      height: 60%;
+      gap: 6%;
+      padding: 4%;
+}
+
+.panel-Facil {
+  width: 80%;
+  height: 60%;
+  border: 5px solid red;
+}
+
+
+/*TEXTO*/
+.container-derecha > p { 
+    font-family:"Poppins", sans-serif ;
+    font-size: 35px;
+    font-weight: 600;
+    color:#004643;
+    margin-top: -3%;
+}
+
+ .container-derecha .container-facil > p { 
+    font-family:"Poppins", sans-serif ;
+    font-size: 23px;
+    font-weight: 600;
+    color:#000000;
+}
+
+span {
+    font-family:"Poppins", sans-serif ;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+/*Botones*/
+
+.botones-h{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    justify-content: center;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.boton {
+  width: 45% ;
+  padding: 2.5%;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family:"Poppins", sans-serif ;
+}
+
+.escaner{
+    background-color:#60B18B;
+}
+
+.CrearCuenta{
+    background-color:#3f5dbd;
+}
+
