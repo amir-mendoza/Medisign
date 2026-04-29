@@ -18,12 +18,21 @@ body {
 }
 
 body {
-  background-color: rgb(232, 232, 232);
+  margin: 0;
+  background: #f4f7f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
   width: 30%;
   margin-bottom: 0px;
+}
+
+.panelescaneo{
+  width: 40%;
+  height: 80%;
 }
 
 /*contenedores*/
@@ -34,7 +43,10 @@ body {
 
 /*Izquierda*/
 .container-izquierda {
-  overflow: hidden;
+  background-image: url(/imagenes/imgLogin/Espalda-Doctora.webp);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .imagen-doctora {
@@ -43,8 +55,8 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
+  transform: translateY(5%);
 }
-
 
 
 
@@ -55,19 +67,20 @@ body {
 }
 
 .container-facil {
-  border: 2px solid black;
-  border-radius: 5px;
+  border: 7px solid #84a8d5;
+  border-radius: 25px;
   flex-direction: column;
-  width: 70%;
-  height: 60%;
+  width: 80%;
+  height: 70%;
   gap: 6%;
   padding: 4%;
 }
 
 .panel-Facil {
-  width: 80%;
-  height: 60%;
-  border: 5px solid red;
+  width: 93%;
+  height: 80%;
+  border: 5px solid #429c84;
+  border-radius: 10px;
 }
 
 /*TEXTO*/
@@ -130,13 +143,11 @@ span {
   animation: bordeSuave 6s linear infinite;
 }
 
-
 .escaner {
   background:
     linear-gradient(#60b18b, #60b18b) padding-box,
     linear-gradient(90deg, #7ee8c6, #5bc0eb, #7ee8c6) border-box;
 }
-
 
 .CrearCuenta {
   background:
