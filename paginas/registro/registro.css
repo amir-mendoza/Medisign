@@ -2,176 +2,144 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', poppins, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-    background-color: #f0fafa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* 1. LA IMG DE LA DOCTORA COMO FONDO TOTAL */
+.Doctora-container  {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; 
+    background-color: #f2f2f2;
+}
+
+.Doctora-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: 0% center; 
+    transform: scale(0.95);
+    transform: none;
+}
+
+
+.container-back {
+    width: 100%;
     min-height: 100vh;
-}
-
-/* CONTENEDOR PRINCIPAL CON BORDE AZUL */
-.outer-frame {
-    width: 95vw;
-    max-width: 1200px;
-    height: 90vh;
-    border: 2px solid #007bff;
-    border-radius: 50px;
-    position: relative;
-    /* Usamos la imagen que me pasaste como fondo principal */
-    background-image: url('/imagenes/imgRegistro/DocReg.png'); 
-    background-size: cover;
-    background-position: left center;
-    background-repeat: no-repeat;
     display: flex;
-    justify-content: flex-end; /* Empuja el contenido a la derecha */
-    align-items: center;      /* Lo centra verticalmente */
-    padding-right: 5%;         /* Espacio desde el borde derecho */
-    overflow: hidden;
+    justify-content: flex-end; 
+    align-items: center;
+    padding-right: 10%; 
+    position: relative;
 }
 
-.back-btn {
+.Volver_Inicio {
     position: absolute;
-    top: 30px;
-    right: 50px;
+    top: 40px;
+    right: 60px;
     color: #004d40;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* ÁREA DE CONTENIDO (Título + Caja Blanca) */
-.content-wrapper {
-    width: 60%;
+
+.registration-area {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Alinea el título y la caja a la derecha */
-    gap: 20px;
+    align-items: center;
+    gap: 25px;
 }
 
 .header-text {
-    text-align: right;
-    margin-right: 20px;
+    text-align: center;
 }
 
 .header-text h1 {
     color: #003d33;
-    font-size: 2.5rem;
-    margin-bottom: 5px;
+    font-size: 2.8rem;
+    font-weight: 800;
 }
 
 .header-text p {
-    color: #666;
+    color: #444;
     font-size: 1rem;
 }
 
-/* LA CAJA DE REGISTRO DUAL */
+
 .registration-card {
     background: white;
-    width: 100%;
-    max-width: 750px;
-    border-radius: 30px;
+    width: 720px;
+    height: 500px;
+    border-radius: 40px;
     display: flex;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
 }
 
-/* Lado Izquierdo: Formulario */
-.form-side {
+
+.form-inputs {
     flex: 1.2;
     padding: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
-.form-side h2 {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    color: #333;
-}
+.form-inputs h2 { font-size: 1.2rem; margin-bottom: 20px; color: #333; }
 
-.input-box {
-    margin-bottom: 15px;
-}
+.field { margin-bottom: 15px; }
+.field label { display: block; font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; color: #666; }
+.field input { width: 100%; padding: 12px; border: 1px solid #eee; border-radius: 12px; background: #fcfcfc; }
 
-.input-box label {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #444;
-}
-
-.input-box input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: #fafafa;
-}
-
-.btn-submit {
-    width: 100%;
+.boton_registro {
     background: #004d40;
     color: white;
     border: none;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 15px;
+    border-radius: 15px;
     font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: auto;
     cursor: pointer;
-    margin-top: 10px;
+}
+.boton_registro:hover {
+    background: #003d33;
 }
 
-/* Lado Derecho: Facial */
-.facial-side {
+.face-panel {
     flex: 1;
     background: #3ca197;
-    padding: 40px 20px;
     color: white;
-    text-align: center;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
-.facial-side h3 { font-size: 1rem; margin-bottom: 5px; }
-.facial-side p { font-size: 0.75rem; margin-bottom: 20px; opacity: 0.9; }
-
-/* Cuadro de Reconocimiento */
-.face-scanner {
-    width: 140px;
-    height: 140px;
+.scanner-box {
+    width: 160px;
+    height: 160px;
     background: white;
-    border-radius: 20px;
-    margin-bottom: 25px;
+    border-radius: 25px;
+    margin: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid #4a1e1d; /* El borde oscuro del visor */
 }
 
-/* Lista de Estados */
-.status-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+.scanner-box img { width: 100px; height: auto; }
 
-.status-pill {
-    background: rgba(255, 255, 255, 0.3);
-    padding: 8px 15px;
-    border-radius: 8px;
-    font-size: 0.8rem;
+.status-stack { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+.pill {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-size: 0.75rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
-
-.status-pill::before {
-    content: '';
-    width: 12px;
-    height: 12px;
-    border: 2px solid white;
-    border-radius: 50%;
-}
+.pill span { width: 10px; height: 10px; border: 2px solid white; border-radius: 50%; }
