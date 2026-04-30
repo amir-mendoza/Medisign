@@ -22,7 +22,7 @@ body {
 }
 
 
-
+/* ! OLAS PARA LAS CORTINAS */
 .ola-arriba,
 .ola-abajo {
   position: absolute;
@@ -31,6 +31,11 @@ body {
   height: 320px;
   z-index: 1;
   overflow: hidden;
+}
+
+.ola-abajo,
+.ola-arriba {
+  z-index: 5;
 }
 
 .ola-arriba {
@@ -51,11 +56,7 @@ body {
   transform: rotate(180deg);
 }
 
-
-
-
-
-
+/* ! ANIMACION DEL LOGO DE VUELTAS*/
 .logo {
   width: 300px;
   height: auto;
@@ -80,10 +81,7 @@ body {
   }
 }
 
-
-
-
-/*Texto del logo*/
+/* ! Texto del logo*/
 .wave-text {
   margin-top: -20px;
   font-size: 5rem;
@@ -97,21 +95,45 @@ body {
 .wave-text span {
   display: inline-block;
   animation: letraOla 2s ease-in-out infinite;
-  letter-spacing: -15px; 
+  letter-spacing: -15px;
+}
+
+.wave-text span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.wave-text span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wave-text span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.wave-text span:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+.wave-text span:nth-child(5) {
+  animation-delay: 0.7s;
+}
+
+.wave-text span:nth-child(6) {
+  animation-delay: 0.9s;
+}
+
+.wave-text span:nth-child(7) {
+  animation-delay: 1.1s;
+}
+
+.wave-text span:nth-child(8) {
+  animation-delay: 1.3s;
 }
 
 
-.wave-text span:nth-child(1) { animation-delay: 0s; }
-.wave-text span:nth-child(2) { animation-delay: 0.1s; }
-.wave-text span:nth-child(3) { animation-delay: 0.3s; }
-.wave-text span:nth-child(4) { animation-delay: 0.5s; }
-.wave-text span:nth-child(5) { animation-delay: 0.7s; }
-.wave-text span:nth-child(6) { animation-delay: 0.9s; }
-.wave-text span:nth-child(7) { animation-delay: 1.1s; }
-.wave-text span:nth-child(8) { animation-delay: 1.3s; }
-
 @keyframes letraOla {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
 
@@ -119,7 +141,6 @@ body {
     transform: translateY(-22px);
   }
 }
-
 
 @keyframes aparecerTexto {
   0% {
@@ -133,3 +154,60 @@ body {
   }
 }
 
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* TODO: cierre tipo cortina */
+.waiting-container.cerrar .ola-arriba {
+  animation: cerrarArriba 5s ease-in forwards;
+}
+
+.waiting-container.cerrar .ola-abajo {
+  animation: cerrarAbajo 5s ease-in forwards;
+}
+
+@keyframes cerrarArriba {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: 100%;
+  }
+}
+
+@keyframes cerrarAbajo {
+  from {
+    bottom: 0;
+  }
+
+  to {
+    bottom: 100%;
+  }
+}
+
+.cortina-arriba,
+.cortina-abajo {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: #2f9e99;
+  z-index: 3;
+  transition: height 3.7s ease-in-out;
+}
+
+.cortina-arriba {
+  top: 0;
+}
+
+.cortina-abajo {
+  bottom: 0;
+}
+
+.waiting-container.cerrar .cortina-arriba,
+.waiting-container.cerrar .cortina-abajo {
+  height: 50%;
+}
