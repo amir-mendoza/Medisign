@@ -1,4 +1,4 @@
-/*Ajusto determinado*/
+/* ? Ajustes determinado*/
 .centrado {
   display: flex;
   justify-content: center;
@@ -6,7 +6,7 @@
 }
 
 * {
-  margin: 0px;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -25,23 +25,24 @@ body {
   align-items: center;
 }
 
+/* TODO: logo y escaneo  */
 .logo {
   width: 30%;
   margin-bottom: 0px;
 }
 
-.panelescaneo{
+.panelescaneo {
   width: 40%;
   height: 80%;
 }
 
-/*contenedores*/
+/* ! CONTENEDORES*/
 .mitad {
   width: 50%;
   height: 100%;
 }
 
-/*Izquierda*/
+/* ! CONTENEDOR IZQUIERDA*/
 .container-izquierda {
   background-image: url(/imagenes/imgLogin/Espalda-Doctora.webp);
   background-size: 100%;
@@ -55,12 +56,10 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
-  transform: translateY(5%);
+  transform: translateY(%);
 }
 
-
-
-/*Derecha*/
+/* ! CONTENEDOR DERECHA*/
 .container-derecha {
   flex-direction: column;
   padding-bottom: 3%;
@@ -83,7 +82,7 @@ body {
   border-radius: 10px;
 }
 
-/*TEXTO*/
+/* todo: TEXTO*/
 .container-derecha > p {
   font-family: "Poppins", sans-serif;
   font-size: 35px;
@@ -109,7 +108,7 @@ span {
   text-align: center;
 }
 
-/*Botones*/
+/* ! BOTONES */
 
 .botones-h {
   display: flex;
@@ -124,7 +123,7 @@ span {
   position: relative;
   width: 45%;
   padding: 2.5%;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 800;
@@ -133,14 +132,9 @@ span {
   color: white;
 
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
+    transform 0.50s ease,
     filter 0.25s ease;
 
-  background-size:
-    100% 100%,
-    250% 250%;
-  animation: bordeSuave 6s linear infinite;
 }
 
 .escaner {
@@ -156,25 +150,5 @@ span {
 }
 
 .boton:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.04);
-}
-
-/* Movimiento suave del borde */
-@keyframes bordeSuave {
-  0% {
-    background-position:
-      0 0,
-      0% 50%;
-  }
-  50% {
-    background-position:
-      0 0,
-      100% 50%;
-  }
-  100% {
-    background-position:
-      0 0,
-      0% 50%;
-  }
+  transform: translateY(-10px);
 }
