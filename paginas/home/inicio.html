@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina principal</title>
+    <link rel="stylesheet" href="inicio.css">
+    <link rel="stylesheet" href="../../header-footer/header/header.css">
+</head>
+<body>
+    <div class="layout">
+        <div id="header"></div>
+
+        <div class="contenido-derecho">
+            <div id="footer"></div>
+
+            <main class="contenido-principal">
+                <h1>Pagina principal</h1>
+                <p>Este contenido no desaparece.</p>
+            </main>
+        </div>
+        
+    </div>
+
+    <script>
+        fetch("../../header-footer/header/header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("header").innerHTML = html;
+            });
+
+        fetch("../../header-footer/footer/footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").innerHTML = html;
+            });
+    </script>
+</body>
+
+
+
+</body>
+</html>

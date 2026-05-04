@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+.layout {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+#header {
+  width: 18%;
+  height: 100%;
+}
+
+.lado-derecho {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#footer {
+  width: 100%;
+  height: 14%;
+}
+
+.contenido-principal {
+  width: 100%;
+  height: auto;
+  background: #43a391;
+  padding: 4%;
+}
