@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="citas.css">
+    <link rel="stylesheet" href="/header-footer/header/header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <title>Reserva de citas </title>
+</head>
+
+<body>
+    <div class="layout">
+        <div id="header"></div>
+
+        <div class="contenido-derecho">
+            <div id="footer"></div>
+
+            <main class="contenido-principal">
+
+
+                <div class="card video-card">
+                    <h4>Escogemos el Horario</h4>
+                    <p class="sub">Selecciona el horario de tu disposición</p>
+
+                    <div class="video">
+
+                        <!-- OPCIÓN 1: VIDEO LOCAL -->
+                        <!--
+                        <video class="video-tutorial" controls>
+                            <source src="/video/explicacion_cita.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        -->
+
+                        <!-- OPCIÓN 2: VIDEO DE YOUTUBE -->
+                        <div class="video">
+                            <iframe class="video-tutorial" src="https://www.youtube.com/embed/orDfWHHS5Cs"
+                                title="Video de YouTube"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+
+                    </div>
+
+                    <p class="desc">
+                        Este video explica paso a paso como sacar tu cita
+                    </p>
+                </div>
+
+                <div class="card-padre options">
+                    <div class="container-card">
+
+                        <div class="doctor">
+                            <h4>Doctor Carlos</h4>
+                            <img src="/imagenes/doctores/doctor4.webp" />
+                            <br>
+                            <p>Horario: 10am - 12pm</p>
+                            <p>Turno Mañana</p>
+                            <span>Cupos Disponibles: 4</span>
+                            <br>
+                            <button>Seleccionar</button>
+                        </div>
+
+                        <div class="doctor">
+                            <h4>Doctora Micaela</h4>
+                            <img src="/imagenes/doctores/doctor2.jpg" />
+                            <br>
+                            <p>Horario: 1pm - 4pm</p>
+                            <p>Turno Mañana</p>
+                            <span>Cupos Disponibles: 4</span>
+                            <br>
+                            <button>Seleccionar</button>
+                        </div>
+
+                        <div class="doctor">
+                            <h4>Doctor Juan Diego</h4>
+                            <img src="/imagenes/doctores/doctor3.jpg" />
+                            <br>
+                            <p>Horario: 4pm - 8pm</p>
+                            <p>Turno Mañana</p>
+                            <span>Cupos Disponibles:4</span>
+                            <br>
+                            <button>Seleccionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="acciones-senas">
+
+                    <div class="grupo-accion">
+
+
+                        <button class="boton-accion boton-horario" type="button">
+                            Agendar Cita Ahora
+                        </button>
+                    </div>
+
+                    <div class="grupo-accion">
+
+
+                        <button class="boton-accion boton-reintentar" type="button">
+                            Intente de nuevo
+                        </button>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+    </div>
+
+    <script>
+        fetch("/header-footer/header/header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("header").innerHTML = html;
+            });
+
+        fetch("/header-footer/footer/footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").innerHTML = html;
+            });
+    </script>
+</body>
+
+
+
+</body>
+
+</html>
