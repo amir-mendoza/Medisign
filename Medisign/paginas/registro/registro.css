@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 1. LA IMG DE LA DOCTORA COMO FONDO TOTAL */
+.Doctora-container  {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; 
+    background-color: #f2f2f2;
+}
+
+.Doctora-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: 0% center; 
+    transform: scale(0.95);
+    transform: none;
+}
+
+
+.container-back {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    padding-right: 10%; 
+    position: relative;
+}
+
+.Volver_Inicio {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    color: #004d40;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.registration-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-text {
+    text-align: center;
+}
+
+.header-text h1 {
+    color: #003d33;
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.header-text p {
+    color: #444;
+    font-size: 1rem;
+}
+
+
+.registration-card {
+    background: white;
+    width: 720px;
+    height: 500px;
+    border-radius: 40px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+
+.form-inputs {
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-inputs h2 { font-size: 1.2rem; margin-bottom: 20px; color: #333; }
+
+.field { margin-bottom: 15px; }
+.field label { display: block; font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; color: #666; }
+.field input { width: 100%; padding: 12px; border: 1px solid #eee; border-radius: 12px; background: #fcfcfc; }
+
+.boton_registro {
+    background: #004d40;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: auto;
+    cursor: pointer;
+}
+.boton_registro:hover {
+    background: #003d33;
+}
+
+.face-panel {
+    flex: 1;
+    background: #3ca197;
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.scanner-box {
+    width: 160px;
+    height: 160px;
+    background: white;
+    border-radius: 25px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scanner-box img { width: 100px; height: auto; }
+
+.status-stack { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+.pill {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.pill span { width: 10px; height: 10px; border: 2px solid white; border-radius: 50%; }
