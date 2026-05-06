@@ -13,9 +13,8 @@
 
 html,
 body {
-  width: 100%;
   height: 100%;
-  overflow: hidden;
+  width: 100%;
 }
 
 body {
@@ -25,9 +24,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-
-
 
 /* TODO: logo y escaneo  */
 .logo {
@@ -43,27 +39,24 @@ body {
 /* ! CONTENEDORES*/
 .mitad {
   width: 50%;
-  height: 100vh;
+  height: 100%;
 }
 
-/* ! CONTENEDOR IZQUIERDA */
+/* ! CONTENEDOR IZQUIERDA*/
 .container-izquierda {
-  position: relative;
-  background-image: url("/imagenes/imgLogin/Espalda-Doctora.webp");
+  background-image: url(/imagenes/imgLogin/Espalda-Doctora.webp);
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden;
 }
 
 .imagen-doctora {
   position: absolute;
-  width: 125%;
-  height: 110%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  object-position: bottom center;
-  bottom: -2%;}
-
+  display: block;
+}
 
 /* ! CONTENEDOR DERECHA*/
 .container-derecha {
@@ -158,5 +151,3 @@ span {
 .boton:hover {
   transform: translateY(-10px);
 }
-
-
