@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina principal</title>
+    <link rel="stylesheet" href="/paginas/home/inicio.css">
+    <link rel="stylesheet" href="/header-footer/header/header.css">
+    <link rel="stylesheet" href="on-señas.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="layout">
+        <div id="header"></div>
+
+        <div class="contenido-derecho">
+            <div id="footer"></div>
+
+
+            <main class="contenido-principal">
+
+                <section class="seccion-senas">
+
+                    <div class="encabezado-senas">
+                        <h1>¿A qué especialidad desea ir?</h1>
+                        <p>Seleccione su especialidad mediante reconocimiento de señas</p>
+                    </div>
+
+                    <div class="card video-card">
+                        <h4>Presiona el botón y detecta tus señas</h4>
+
+                        <div class="video">
+
+                            <!-- OPCIÓN 1: VIDEO LOCAL -->
+
+                            <!--
+                                <video class="video-tutorial" controls>
+                                    <source src="/video/explicacion_senas.mp4" type="video/mp4">
+                                    Tu navegador no soporta el elemento de video.
+                                </video>
+                                -->
+
+                            <!-- OPCIÓN 2: VIDEO DE YOUTUBE -->
+                            <iframe class="video-tutorial" src="https://www.youtube.com/embed/OIElj2X0qT0"
+                                title="Video de YouTube"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+
+                        </div>
+
+                        <p class="desc">
+                            Este video explica cómo solicitar tu cita usando señas
+                        </p>
+                    </div>
+
+                    <div class="card reconocimiento-card">
+                        <div class="texto-reconocimiento">
+                            <h3>Reconocimiento de Señas Activado</h3>
+                            <p>La cámara está lista para reconocer tus señas y ayudarte a seleccionar una
+                                especialidad.</p>
+                        </div>
+
+                        <div class="camara-reconocimiento">
+                            <img src="/imagenes/Inicio/manos.svg" alt="Reconocimiento de señas">
+
+                            <p>
+                                Puedes usar señas para navegar o solicitar información de citas médicas.
+                            </p>
+
+                            <span>Detectando señas...</span>
+                        </div>
+                    </div>
+
+                    <div class="acciones-senas">
+
+                        <div class="grupo-accion">
+                            <p>Si la especialidad es correcta</p>
+
+                            <button class="boton-accion boton-horario" type="button">
+                                Escoja Horario
+                            </button>
+                        </div>
+
+                        <div class="grupo-accion">
+                            <p>Si la especialidad no es la correcta</p>
+
+                            <button class="boton-accion boton-reintentar" type="button">
+                                Intente de nuevo
+                            </button>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <script>
+        fetch("/header-footer/header/header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("header").innerHTML = html;
+            });
+
+        fetch("/header-footer/footer/footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").innerHTML = html;
+            });
+    </script>
+</body>

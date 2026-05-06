@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina principal</title>
     <link rel="stylesheet" href="inicio.css">
-    <link rel="stylesheet" href="../../header-footer/header/header.css">
+    <link rel="stylesheet" href="/header-footer/header/header.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
 </head>
+
 <body>
     <div class="layout">
         <div id="header"></div>
@@ -15,21 +24,70 @@
             <div id="footer"></div>
 
             <main class="contenido-principal">
-                <h1>Pagina principal</h1>
-                <p>Este contenido no desaparece.</p>
+
+
+                <div class="card video-card">
+                    <h4>Bienvenida, Explicación para el Otorgamiento de su Cita</h4>
+
+                    <div class="video">
+
+                        <!-- OPCIÓN 1: VIDEO LOCAL -->
+                        <!--
+                        <video class="video-tutorial" controls>
+                            <source src="/video/explicacion_cita.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        -->
+
+                        <!-- OPCIÓN 2: VIDEO DE YOUTUBE -->
+
+                        <div class="video">
+                            <iframe class="video-tutorial" src="https://www.youtube.com/embed/orDfWHHS5Cs"
+                                title="Video de YouTube"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+
+                    </div>
+
+                    <p class="desc">
+                        Este video explica paso a paso como agendar tu cita
+                    </p>
+                </div>
+
+                <div class="card-padre options">
+                    <h2>¿Cómo prefieres interactuar?</h2>
+
+                    <div class="container-card">
+                        <div class="card-ob card-señas"
+                            onclick="window.location.href='/paginas/on-señas/on-señas.html' ">
+                            <img src="/imagenes/Inicio/manos.svg" alt="">
+                            <p>Reconocimiento de Señas Activado</p>
+                        </div>
+
+                        <div class="card-ob card-manual">
+                            <img src="/imagenes/Inicio/chat.svg" alt="">
+                            <p>Acceso inmediato sin Reconocimiento de señas</p>
+                        </div>
+                    </div>
+                </div>
+
+
             </main>
         </div>
-        
+
     </div>
 
     <script>
-        fetch("../../header-footer/header/header.html")
+        fetch("/header-footer/header/header.html")
             .then(res => res.text())
             .then(html => {
                 document.getElementById("header").innerHTML = html;
             });
 
-        fetch("../../header-footer/footer/footer.html")
+        fetch("/header-footer/footer/footer.html")
             .then(res => res.text())
             .then(html => {
                 document.getElementById("footer").innerHTML = html;
@@ -40,4 +98,5 @@
 
 
 </body>
+
 </html>
