@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina principal</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="off-señas.css">
+    <link rel="stylesheet" href="/header-footer/header/header.css">
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <div id="header"></div>
+        <div class="contenido-derecho">
+            <div id="footer"></div>
+
+            <main class="contenido-principal">
+                <div class="card video-card">
+
+                    <h4>¿A qué especialidad desea ir?</h4>
+                    <p>Seleccionamos especialidad</p>
+
+                    <div class="video">
+
+                        <!-- OPCIÓN 1: VIDEO LOCAL -->
+                         <!--
+                        <video class="video-tutorial" controls>
+                            <source src="/video/explicacion_senas.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        -->
+                        <!-- OPCIÓN 2: VIDEO DE YOUTUBE -->
+                        <iframe class="video-tutorial" src="https://www.youtube.com/embed/OIElj2X0qT0"
+                            title="Video de YouTube"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                    <p class="desc">
+                        Este video explica cómo solicitar tu cita usando señas
+                    </p>
+                </div>
+
+                <section class="card-especialidades">
+
+                    <div class="buscador-especialidad">
+
+                        <input type="text" placeholder="Busque su Especialidad">
+                        <div class="iconos-buscador">
+                            <div class="icono-svg">
+                                <img src="/imagenes/off-señas/filter.svg" alt="filtro">
+                            </div>
+
+                            <div class="icono-svg">
+                                <img src="/imagenes/off-señas/lupa.svg" alt="buscar">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="lista-especialidades">
+                        <ul>
+                            <li>Dermatología</li>
+                            <li>Ginecología</li>
+                            <li>Pediatría</li>
+                            <li>Cardiología</li>
+                        </ul>
+                    </div>
+
+                    <button class="btn-especialidad">
+                        Especialidad Seleccionada
+                    </button>
+
+                </section>
+
+                <section class="contenedor-horario">
+
+                    <button onclick="window.location.href='../citas/citas.html'" class="btn-horario">
+                        <div class="btn-svg">
+                            <img src="/imagenes/off-señas/citas-H.svg" alt="">
+                        </div>
+                        <span>Escoja Horario</span>
+                    </button>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        fetch("/header-footer/header/header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("header").innerHTML = html;
+            });
+
+        fetch("/header-footer/footer/footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").innerHTML = html;
+            });
+
+    </script>
+
+</body>
+
+</html>
