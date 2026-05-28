@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediSign - Traductor de senas</title>
+    <link rel="stylesheet" href="../css/doctor.css" />
+    <link rel="icon" href="../../../imagenes/Logo/Logo-grande.webp" type="image/webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="doctor-layout">
+      <aside class="doctor-menu">
+        <div class="marca-panel">
+          <img src="../../../imagenes/Logo/Logo-grande.webp" alt="MediSign" />
+          <div>
+            <h1>MediSign</h1>
+            <span>Comunicacion inclusiva</span>
+          </div>
+        </div>
+        <nav class="nav-doctor">
+          <a href="../panel/panel-doctor.html">Panel</a>
+          <a class="activo" href="traductor-senas.html">Traductor de senas</a>
+          <a href="../../Login/login.html">Cerrar sesion</a>
+        </nav>
+        <div class="menu-ayuda">
+          <strong>Modulo futuro</strong>
+          <span>Por ahora es solo diseno visual para el traductor.</span>
+        </div>
+      </aside>
+
+      <main class="doctor-contenido">
+        <header class="cabecera">
+          <div>
+            <h2>Traductor de lenguaje de senas</h2>
+            <p>Espacio visual para apoyar la comunicacion doctor-paciente.</p>
+          </div>
+          <div class="doctor-mini">
+            <img src="../../../imagenes/header-footer/perfil.webp" alt="Paciente" />
+            <div>
+              <strong>Paciente en consulta</strong>
+              <span>Requiere apoyo en senas</span>
+            </div>
+          </div>
+        </header>
+
+        <section class="traductor-grid">
+          <article class="tarjeta">
+            <div class="tarjeta-cabecera">
+              <div>
+                <h3>Camara de interpretacion</h3>
+                <p>Representacion del area donde luego se detectaran las senas.</p>
+              </div>
+              <span class="etiqueta">Simulado</span>
+            </div>
+            <div class="camara-simulada">
+              <div class="camara-estado">Detectando movimiento de manos...</div>
+            </div>
+          </article>
+
+          <aside class="tarjeta">
+            <div class="tarjeta-cabecera">
+              <div>
+                <h3>Texto traducido</h3>
+                <p>Salida visual para que el doctor pueda leer la solicitud.</p>
+              </div>
+            </div>
+            <div class="traduccion">
+              <h4>Interpretacion actual</h4>
+              <p data-traduccion>Me duele la garganta desde ayer y necesito saber si debo tomar medicina.</p>
+            </div>
+            <div class="frases">
+              <button type="button" data-frase="Tengo dolor de cabeza y mareos.">Dolor de cabeza</button>
+              <button type="button" data-frase="Necesito explicar donde siento dolor.">Ubicar dolor</button>
+              <button type="button" data-frase="Soy alergico a algunos medicamentos.">Alergias</button>
+              <button type="button" data-frase="No entiendo la indicacion, por favor repitala.">Repetir</button>
+            </div>
+            <div class="editor-nota">
+              <textarea placeholder="Nota rapida del doctor sobre la comunicacion..."></textarea>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script src="../js/doctor.js"></script>
+  </body>
+</html>

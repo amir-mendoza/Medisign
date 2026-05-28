@@ -1,0 +1,855 @@
+:root {
+  --fondo: #eef7f5;
+  --fondo-patron: #50bda0;
+  --panel: #ffffff;
+  --panel-suave: #f7fbfb;
+  --texto: #173436;
+  --muted: #64787c;
+  --linea: #d9e8e7;
+  --verde: #0d766f;
+  --verde-oscuro: #064f4b;
+  --azul: #2f6fed;
+  --amarillo: #f4b942;
+  --rojo: #cc4b4b;
+  --sombra: 0 16px 38px rgba(18, 72, 75, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Poppins", Arial, sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.boton {
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.boton:hover {
+  transform: translateY(-2px);
+}
+
+.boton-primario {
+  background: var(--verde);
+  color: #ffffff;
+}
+
+.boton-secundario {
+  border: 1px solid var(--linea);
+  background: #ffffff;
+  color: var(--texto);
+}
+
+.etiqueta {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #e8f5f3;
+  color: var(--verde);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.etiqueta-azul {
+  background: #eaf0ff;
+  color: var(--azul);
+}
+
+.etiqueta-alerta {
+  background: #fff5df;
+  color: #93640e;
+}
+
+.etiqueta-normal {
+  background: #edf2f2;
+  color: var(--muted);
+}
+
+.login-doctor {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(420px, 1.05fr);
+  background:
+    linear-gradient(135deg, rgba(6, 79, 75, 0.92), rgba(47, 111, 237, 0.62)),
+    url("../../../imagenes/imgLogin/Espalda-Doctora.webp") center / cover no-repeat;
+}
+
+.login-info {
+  padding: 56px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.marca,
+.marca-panel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.marca img,
+.marca-panel img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.marca h1,
+.marca-panel h1 {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.marca span,
+.marca-panel span {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.login-copy {
+  max-width: 520px;
+}
+
+.login-copy small {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.login-copy h2 {
+  margin-bottom: 18px;
+  font-size: 46px;
+  line-height: 1.08;
+}
+
+.login-copy p {
+  max-width: 460px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.login-resumen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.login-resumen article {
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.login-resumen strong,
+.login-resumen span {
+  display: block;
+}
+
+.login-resumen strong {
+  font-size: 24px;
+}
+
+.login-resumen span {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+}
+
+.login-validacion {
+  min-height: 100vh;
+  padding: 44px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.tarjeta-login {
+  width: min(100%, 520px);
+  padding: 34px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: var(--sombra);
+}
+
+.tarjeta-login h2 {
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.tarjeta-login > p {
+  margin-bottom: 24px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.panel-escaneo {
+  padding: 18px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: var(--panel-suave);
+}
+
+.marco-escaneo {
+  position: relative;
+  min-height: 240px;
+  border: 2px solid #98c9c6;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(13, 118, 111, 0.14) 50%, transparent 51%),
+    linear-gradient(#eaf6f5, #ffffff);
+}
+
+.linea-escaneo {
+  position: absolute;
+  top: 18%;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--verde);
+  box-shadow: 0 0 18px rgba(13, 118, 111, 0.55);
+  animation: escanear 2.8s ease-in-out infinite;
+}
+
+.foto-doctor {
+  width: 122px;
+  height: 122px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #ffffff;
+  box-shadow: 0 12px 30px rgba(24, 62, 68, 0.18);
+}
+
+.estado-escaneo {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.acciones-login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.doctor-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+}
+
+.doctor-menu {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #073f3d;
+  color: #ffffff;
+}
+
+.nav-doctor {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-doctor a {
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+.nav-doctor a.activo,
+.nav-doctor a:hover {
+  background: rgba(255, 255, 255, 0.13);
+  color: #ffffff;
+}
+
+.menu-ayuda {
+  margin-top: auto;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.menu-ayuda strong,
+.menu-ayuda span {
+  display: block;
+}
+
+.menu-ayuda span {
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.doctor-contenido {
+  min-width: 0;
+  padding: 28px;
+}
+
+.cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.cabecera h2 {
+  font-size: 28px;
+}
+
+.cabecera p {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.doctor-mini {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.doctor-mini img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.doctor-mini strong,
+.doctor-mini span {
+  display: block;
+  white-space: nowrap;
+}
+
+.doctor-mini span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.metricas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.metrica,
+.tarjeta {
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 10px 24px rgba(24, 62, 68, 0.06);
+}
+
+.metrica {
+  padding: 18px;
+}
+
+.metrica span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.metrica strong {
+  display: block;
+  margin: 8px 0 6px;
+  font-size: 32px;
+}
+
+.metrica small {
+  color: var(--verde);
+  font-weight: 800;
+}
+
+.panel-agenda {
+  display: grid;
+  grid-template-columns: minmax(480px, 1fr) minmax(360px, 0.8fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.tarjeta {
+  padding: 20px;
+}
+
+.tarjeta-cabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.tarjeta-cabecera h3 {
+  font-size: 20px;
+}
+
+.tarjeta-cabecera p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.calendario-mes {
+  display: grid;
+  gap: 10px;
+}
+
+.calendario-dias,
+.calendario-nombres {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.calendario-nombres span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.dia-calendario {
+  min-height: 86px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  padding: 10px;
+  background: #ffffff;
+  color: var(--texto);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.dia-calendario:hover,
+.dia-calendario.activo {
+  transform: translateY(-2px);
+  border-color: var(--verde);
+  background: #eefaf8;
+}
+
+.dia-calendario strong {
+  font-size: 18px;
+}
+
+.dia-calendario span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.dia-calendario[data-tipo="lleno"] {
+  border-color: rgba(204, 75, 75, 0.28);
+}
+
+.dia-calendario[data-tipo="senas"] {
+  border-color: rgba(47, 111, 237, 0.34);
+}
+
+.lista-pacientes {
+  display: grid;
+  gap: 12px;
+}
+
+.paciente-card {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.paciente-card strong,
+.paciente-card span,
+.paciente-card small {
+  display: block;
+}
+
+.paciente-card span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.paciente-card small {
+  margin-top: 4px;
+  color: var(--verde);
+  font-weight: 800;
+}
+
+.hora {
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--panel-suave);
+  color: var(--verde-oscuro);
+  font-weight: 800;
+  text-align: center;
+}
+
+.perfil-paciente-grid {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.perfil-paciente {
+  text-align: center;
+}
+
+.perfil-paciente img {
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+
+.perfil-paciente h3 {
+  font-size: 22px;
+}
+
+.perfil-paciente p {
+  margin: 8px 0 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.datos {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+
+.datos div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--linea);
+}
+
+.datos span {
+  color: var(--muted);
+}
+
+.secciones-paciente {
+  display: grid;
+  gap: 18px;
+}
+
+.historial {
+  display: grid;
+  gap: 14px;
+}
+
+.historial-item {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--linea);
+}
+
+.historial-item time {
+  color: var(--verde);
+  font-weight: 800;
+}
+
+.historial-item p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.diagnostico {
+  padding: 14px;
+  border-left: 4px solid var(--verde);
+  border-radius: 8px;
+  background: var(--panel-suave);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.notas {
+  display: grid;
+  gap: 12px;
+}
+
+.nota {
+  padding: 14px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.nota p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.nota-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.nota-acciones button {
+  min-height: 34px;
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  padding: 0 10px;
+  background: #ffffff;
+  color: var(--texto);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.nota-acciones button[data-action="delete"] {
+  color: var(--rojo);
+}
+
+.editor-nota {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.editor-nota textarea,
+.busqueda-paciente {
+  width: 100%;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--texto);
+}
+
+.editor-nota textarea {
+  min-height: 110px;
+  padding: 12px;
+  resize: vertical;
+}
+
+.busqueda-paciente {
+  min-height: 44px;
+  padding: 0 14px;
+}
+
+.traductor-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
+  gap: 18px;
+}
+
+.camara-simulada {
+  min-height: 420px;
+  border-radius: 8px;
+  border: 1px solid var(--linea);
+  background:
+    linear-gradient(rgba(7, 63, 61, 0.18), rgba(7, 63, 61, 0.18)),
+    url("../../../imagenes/Inicio/manos.svg") center / 190px no-repeat,
+    #102f33;
+  position: relative;
+  overflow: hidden;
+}
+
+.camara-simulada::before,
+.camara-simulada::after {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+}
+
+.camara-simulada::after {
+  inset: 44px;
+  border-color: rgba(119, 232, 212, 0.42);
+  animation: pulsoCamara 2s ease-in-out infinite;
+}
+
+.camara-estado {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--texto);
+  font-weight: 800;
+}
+
+.traduccion {
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--panel-suave);
+  border: 1px solid var(--linea);
+}
+
+.traduccion h4 {
+  margin-bottom: 10px;
+}
+
+.traduccion p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.frases {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.frases button {
+  min-height: 42px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--texto);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+@keyframes escanear {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(140px);
+  }
+}
+
+@keyframes pulsoCamara {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 1120px) {
+  .login-doctor,
+  .doctor-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-menu {
+    position: static;
+    height: auto;
+  }
+
+  .nav-doctor {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .metricas,
+  .panel-agenda,
+  .perfil-paciente-grid,
+  .traductor-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .login-info,
+  .login-validacion,
+  .doctor-contenido {
+    padding: 20px;
+  }
+
+  .login-copy h2 {
+    font-size: 34px;
+  }
+
+  .login-resumen,
+  .acciones-login,
+  .nav-doctor,
+  .calendario-dias,
+  .calendario-nombres,
+  .frases {
+    grid-template-columns: 1fr;
+  }
+
+  .cabecera {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .paciente-card,
+  .historial-item {
+    grid-template-columns: 1fr;
+  }
+}

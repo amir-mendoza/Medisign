@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediSign - Historial del paciente</title>
+    <link rel="stylesheet" href="../css/doctor.css" />
+    <link rel="icon" href="../../../imagenes/Logo/Logo-grande.webp" type="image/webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="doctor-layout">
+      <aside class="doctor-menu">
+        <div class="marca-panel">
+          <img src="../../../imagenes/Logo/Logo-grande.webp" alt="MediSign" />
+          <div>
+            <h1>MediSign</h1>
+            <span>Historial clinico</span>
+          </div>
+        </div>
+        <nav class="nav-doctor">
+          <a href="../panel/panel-doctor.html">Panel</a>
+          <a class="activo" href="detalle-paciente.html">Paciente</a>
+          <a href="../traductor/traductor-senas.html">Traductor de senas</a>
+          <a href="../../Login/login.html">Cerrar sesion</a>
+        </nav>
+        <div class="menu-ayuda">
+          <strong>Vista individual</strong>
+          <span>Datos, diagnostico, historial, pendientes y anotaciones del paciente seleccionado.</span>
+        </div>
+      </aside>
+
+      <main class="doctor-contenido">
+        <header class="cabecera">
+          <div>
+            <h2 data-paciente-nombre>Paciente</h2>
+            <p data-paciente-condicion>Condicion del paciente</p>
+          </div>
+          <a class="boton boton-secundario" href="../panel/panel-doctor.html">Volver al panel</a>
+        </header>
+
+        <section class="perfil-paciente-grid">
+          <aside class="tarjeta perfil-paciente">
+            <img src="../../../imagenes/header-footer/perfil.webp" alt="Paciente" />
+            <h3 data-paciente-nombre>Paciente</h3>
+            <p data-paciente-condicion>Condicion del paciente</p>
+            <span class="etiqueta etiqueta-azul">Atencion personalizada</span>
+            <div class="datos" data-paciente-detalle></div>
+          </aside>
+
+          <section class="secciones-paciente">
+            <article class="tarjeta">
+              <div class="tarjeta-cabecera">
+                <div>
+                  <h3>Diagnostico y motivo de consulta</h3>
+                  <p>Resumen clinico visible para el doctor.</p>
+                </div>
+              </div>
+              <p class="diagnostico" data-diagnostico></p>
+            </article>
+
+            <article class="tarjeta">
+              <div class="tarjeta-cabecera">
+                <div>
+                  <h3>Historial del paciente</h3>
+                  <p>Consultas, registros y eventos anteriores.</p>
+                </div>
+              </div>
+              <div class="historial" data-historial></div>
+            </article>
+
+            <article class="tarjeta">
+              <div class="tarjeta-cabecera">
+                <div>
+                  <h3>Pendientes para la atencion</h3>
+                  <p>Acciones que el doctor debe revisar durante la consulta.</p>
+                </div>
+              </div>
+              <div class="historial" data-pendientes></div>
+            </article>
+
+            <article class="tarjeta">
+              <div class="tarjeta-cabecera">
+                <div>
+                  <h3>Anotaciones medicas</h3>
+                  <p>Notas visuales con opciones para editar o borrar.</p>
+                </div>
+              </div>
+              <div class="notas">
+                <div class="nota">
+                  <p>Usar lenguaje claro y confirmar que el paciente comprendio las indicaciones.</p>
+                  <div class="nota-acciones">
+                    <button type="button" data-action="edit">Editar</button>
+                    <button type="button" data-action="delete">Borrar</button>
+                  </div>
+                </div>
+                <div class="nota">
+                  <p>Revisar si existe alergia antes de indicar medicacion.</p>
+                  <div class="nota-acciones">
+                    <button type="button" data-action="edit">Editar</button>
+                    <button type="button" data-action="delete">Borrar</button>
+                  </div>
+                </div>
+              </div>
+              <div class="editor-nota">
+                <textarea placeholder="Nueva anotacion para futuras consultas..."></textarea>
+                <button class="boton boton-primario" type="button">Guardar anotacion visual</button>
+              </div>
+            </article>
+          </section>
+        </section>
+      </main>
+    </div>
+    <script src="../js/doctor.js"></script>
+  </body>
+</html>
