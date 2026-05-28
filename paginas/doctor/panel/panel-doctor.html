@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MediSign - Panel del doctor</title>
-    <link rel="stylesheet" href="../css/doctor.css" />
+    <link rel="stylesheet" href="panel-doctor.css" />
     <link rel="icon" href="../../../imagenes/Logo/Logo-grande.webp" type="image/webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -73,48 +73,22 @@
           <article class="tarjeta">
             <div class="tarjeta-cabecera">
               <div>
-                <h3>Calendario de mayo 2026</h3>
+                <h3 data-calendario-titulo>Calendario</h3>
                 <p>Seleccione un dia para ver los pacientes asignados.</p>
               </div>
-              <span class="etiqueta">30 dias</span>
+              <span class="etiqueta" data-calendario-total>Mes activo</span>
             </div>
 
             <div class="calendario-mes">
+              <div class="calendario-controles">
+                <button class="boton boton-secundario" type="button" data-mes-anterior>Anterior</button>
+                <strong data-calendario-periodo>Mayo 2026</strong>
+                <button class="boton boton-secundario" type="button" data-mes-siguiente>Siguiente</button>
+              </div>
               <div class="calendario-nombres">
                 <span>Lun</span><span>Mar</span><span>Mie</span><span>Jue</span><span>Vie</span><span>Sab</span><span>Dom</span>
               </div>
-              <div class="calendario-dias">
-                <button class="dia-calendario" data-dia="1" data-tipo="senas"><strong>1</strong><span>4 pacientes</span></button>
-                <button class="dia-calendario" data-dia="2"><strong>2</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="3" data-tipo="senas"><strong>3</strong><span>4 pacientes</span></button>
-                <button class="dia-calendario" data-dia="4"><strong>4</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="5" data-tipo="senas"><strong>5</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="6"><strong>6</strong><span>2 pacientes</span></button>
-                <button class="dia-calendario" data-dia="7" data-tipo="senas"><strong>7</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="8" data-tipo="lleno"><strong>8</strong><span>4 pacientes</span></button>
-                <button class="dia-calendario" data-dia="9"><strong>9</strong><span>2 pacientes</span></button>
-                <button class="dia-calendario" data-dia="10" data-tipo="lleno"><strong>10</strong><span>5 pacientes</span></button>
-                <button class="dia-calendario" data-dia="11"><strong>11</strong><span>2 pacientes</span></button>
-                <button class="dia-calendario" data-dia="12" data-tipo="senas"><strong>12</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="13"><strong>13</strong><span>2 pacientes</span></button>
-                <button class="dia-calendario" data-dia="14" data-tipo="senas"><strong>14</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="15"><strong>15</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="16" data-tipo="lleno"><strong>16</strong><span>4 pacientes</span></button>
-                <button class="dia-calendario" data-dia="17"><strong>17</strong><span>2 pacientes</span></button>
-                <button class="dia-calendario" data-dia="18" data-tipo="senas"><strong>18</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="19"><strong>19</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="20"><strong>20</strong><span>2 pacientes</span></button>
-                <button class="dia-calendario" data-dia="21" data-tipo="senas"><strong>21</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="22" data-tipo="lleno"><strong>22</strong><span>4 pacientes</span></button>
-                <button class="dia-calendario" data-dia="23"><strong>23</strong><span>2 pacientes</span></button>
-                <button class="dia-calendario" data-dia="24" data-tipo="senas"><strong>24</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="25"><strong>25</strong><span>2 pacientes</span></button>
-                <button class="dia-calendario" data-dia="26" data-tipo="lleno"><strong>26</strong><span>4 pacientes</span></button>
-                <button class="dia-calendario" data-dia="27"><strong>27</strong><span>2 pacientes</span></button>
-                <button class="dia-calendario activo" data-dia="28" data-tipo="lleno"><strong>28</strong><span>4 pacientes</span></button>
-                <button class="dia-calendario" data-dia="29" data-tipo="senas"><strong>29</strong><span>3 pacientes</span></button>
-                <button class="dia-calendario" data-dia="30"><strong>30</strong><span>3 pacientes</span></button>
-              </div>
+              <div class="calendario-dias" data-calendario-dias></div>
             </div>
           </article>
 
@@ -130,6 +104,6 @@
         </section>
       </main>
     </div>
-    <script src="../js/doctor.js"></script>
+    <script src="panel-doctor.js"></script>
   </body>
 </html>
