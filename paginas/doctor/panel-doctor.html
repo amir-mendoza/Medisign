@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediSign - Panel medico</title>
+    <link rel="stylesheet" href="doctor.css" />
+    <link rel="icon" href="../../imagenes/Logo/Logo-grande.webp" type="image/webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="doctor-shell">
+      <aside class="doctor-sidebar">
+        <div class="doctor-brand">
+          <img src="../../imagenes/Logo/Logo-grande.webp" alt="MediSign" />
+          <div>
+            <h1>MediSign</h1>
+            <span>Area medica</span>
+          </div>
+        </div>
+        <nav class="doctor-nav">
+          <a class="active" href="panel-doctor.html">Panel</a>
+          <a href="pacientes-doctor.html">Pacientes</a>
+          <a href="calendario-doctor.html">Calendario</a>
+          <a href="traductor-senas.html">Traductor de senas</a>
+          <a href="../Login/login.html">Cerrar sesion</a>
+        </nav>
+        <div class="sidebar-card">
+          <strong>Consultorio 204</strong>
+          <span>Medicina general y admision inclusiva</span>
+        </div>
+      </aside>
+
+      <main class="doctor-main">
+        <header class="topbar">
+          <div>
+            <h2>Panel del doctor</h2>
+            <p>Resumen operativo para la atencion del dia.</p>
+          </div>
+          <div class="doctor-profile">
+            <img src="../../imagenes/doctores/doctor4.webp" alt="Doctor Carlos" />
+            <div>
+              <strong>Dr. Carlos Rivas</strong>
+              <span>Turno manana</span>
+            </div>
+          </div>
+        </header>
+
+        <section class="metric-grid">
+          <article class="metric-card">
+            <span>Pacientes hoy</span>
+            <strong>12</strong>
+            <small>4 pendientes</small>
+          </article>
+          <article class="metric-card">
+            <span>Pacientes sordomudos</span>
+            <strong>5</strong>
+            <small>requieren apoyo visual</small>
+          </article>
+          <article class="metric-card">
+            <span>Citas confirmadas</span>
+            <strong>9</strong>
+            <small>agenda estable</small>
+          </article>
+          <article class="metric-card">
+            <span>Notas por revisar</span>
+            <strong>3</strong>
+            <small>historial pendiente</small>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="content-card">
+            <div class="card-head">
+              <div>
+                <h3>Pacientes proximos</h3>
+                <p>Lista priorizada de atencion.</p>
+              </div>
+              <span class="status-pill">Hoy</span>
+            </div>
+            <div class="patient-list">
+              <a class="patient-row" href="pacientes-doctor.html">
+                <div class="time-box">09:00</div>
+                <div>
+                  <strong>Lucia Fernandez</strong>
+                  <span>Control general - paciente sordomuda</span>
+                  <small>Requiere traductor de senas</small>
+                </div>
+                <span class="tag">Accesible</span>
+              </a>
+              <a class="patient-row" href="pacientes-doctor.html">
+                <div class="time-box">09:45</div>
+                <div>
+                  <strong>Marco Salazar</strong>
+                  <span>Evaluacion respiratoria</span>
+                  <small>Sin asistencia especial</small>
+                </div>
+                <span class="tag tag-muted">Regular</span>
+              </a>
+              <a class="patient-row" href="pacientes-doctor.html">
+                <div class="time-box">10:30</div>
+                <div>
+                  <strong>Rosa Huaman</strong>
+                  <span>Dermatologia - paciente sordomuda</span>
+                  <small>Confirmar sintomas por modulo visual</small>
+                </div>
+                <span class="tag tag-blue">Senas</span>
+              </a>
+            </div>
+          </article>
+
+          <aside class="content-card">
+            <div class="card-head">
+              <div>
+                <h3>Alertas clinicas</h3>
+                <p>Recordatorios para la consulta.</p>
+              </div>
+            </div>
+            <div class="note-stack">
+              <p class="clinical-note">
+                Verificar alergias antes de emitir indicaciones para Lucia Fernandez.
+              </p>
+              <p class="clinical-note">
+                Mantener disponible el modulo de traduccion para consultas con pacientes sordomudos.
+              </p>
+              <p class="clinical-note">
+                Revisar cupos de tarde por aumento de demanda en medicina general.
+              </p>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
