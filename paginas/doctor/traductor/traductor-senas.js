@@ -72,7 +72,7 @@ const simularReconocimientoPaciente = () => {
   let indice = 0;
   let texto = "";
 
-  if (estadoCamara) estadoCamara.textContent = "Reconocimiento de senas en tiempo real";
+  if (estadoCamara) estadoCamara.textContent = "Reconocimiento de señas en tiempo real";
   if (salida) salida.textContent = "";
 
   const intervalo = window.setInterval(() => {
