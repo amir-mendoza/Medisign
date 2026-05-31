@@ -110,6 +110,10 @@
             .then(res => res.text())
             .then(html => {
                 document.getElementById("header").innerHTML = html;
+                const ruta = window.location.pathname.toLowerCase();
+                document.querySelectorAll(".header-link").forEach((link) => link.classList.remove("header-link-active"));
+                const activo = ruta.includes("/paginas/citas/") ? "citas" : "inicio";
+                document.querySelector(`[data-nav="${activo}"]`)?.classList.add("header-link-active");
             });
 
         fetch("/header-footer/footer/footer.html")

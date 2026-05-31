@@ -1,102 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina principal</title>
-    <link rel="stylesheet" href="inicio.css">
-    <link rel="stylesheet" href="/header-footer/header/header.css">
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediSign - Inicio</title>
+    <link rel="stylesheet" href="inicio.css" />
+    <link rel="stylesheet" href="/header-footer/header/header.css" />
+    <link rel="stylesheet" href="/header-footer/footer/footer.css" />
+    <link rel="icon" href="/imagenes/Logo/Logo-grande.webp" type="image/webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet" />
-</head>
-
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
     <div class="layout">
-        <div id="header"></div>
+      <div id="header"></div>
 
-        <div class="contenido-derecho">
-            <div id="footer"></div>
+      <div class="contenido-derecho">
+        <div id="footer"></div>
 
-            <main class="contenido-principal">
+        <main class="contenido-principal">
+          <section class="bienvenida">
+            <div>
+              <span class="etiqueta">Atencion inclusiva</span>
+              <h1>Bienvenido a MediSign</h1>
+              <p>Gestiona tu cita y elige el modo de comunicacion que mejor se adapte a tu atencion medica.</p>
+            </div>
+            <div class="resumen-paciente">
+              <span>Paciente identificado</span>
+              <strong>Juan Carlos Perez Garcia</strong>
+              <small>DNI: 12345678</small>
+            </div>
+          </section>
 
-
-                <div class="card video-card">
-                    <h4>Bienvenida, Explicación para el Otorgamiento de su Cita</h4>
-
-                    <div class="video">
-
-                        <!-- OPCIÓN 1: VIDEO LOCAL -->
-                        <!--
-                        <video class="video-tutorial" controls>
-                            <source src="/video/explicacion_cita.mp4" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
-                        -->
-
-                        <!-- OPCIÓN 2: VIDEO DE YOUTUBE -->
-
-                        <div class="video">
-                            <iframe class="video-tutorial" src="https://www.youtube.com/embed/orDfWHHS5Cs"
-                                title="Video de YouTube"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-
-
-                    </div>
-
-                    <p class="desc">
-                        Este video explica paso a paso como agendar tu cita
-                    </p>
+          <section class="contenido-grid">
+            <article class="tarjeta video-card">
+              <div class="tarjeta-cabecera">
+                <div>
+                  <h2>Guia para otorgamiento de cita</h2>
+                  <p>Video de apoyo para entender el flujo de agendamiento.</p>
                 </div>
+              </div>
 
-                <div class="card-padre options">
-                    <h2>¿Cómo prefieres interactuar?</h2>
+              <div class="video">
+                <iframe
+                  class="video-tutorial"
+                  src="https://www.youtube.com/embed/orDfWHHS5Cs"
+                  title="Video explicativo de citas"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </article>
 
-                    <div class="container-card">
-                        <div class="card-ob card-señas"
-                            onclick="window.location.href='/paginas/on-señas/on-señas.html' ">
-                            <img src="/imagenes/Inicio/manos.svg" alt="">
-                            <p>Reconocimiento de Señas Activado</p>
-                        </div>
- 
-                        <div class="card-ob card-manual" onclick="window.location.href='../off-señas/off-señas.html'">
-                            <img src="/imagenes/Inicio/chat.svg" alt="">
-                            <p>Acceso inmediato sin Reconocimiento de señas</p>
-                        </div>
-                    </div>
+            <aside class="tarjeta ruta-card">
+              <div class="tarjeta-cabecera">
+                <div>
+                  <h2>Modo de atencion</h2>
+                  <p>Selecciona como deseas continuar.</p>
                 </div>
+              </div>
 
+              <div class="container-card">
+                <button class="card-ob card-senas" type="button" onclick="window.location.href='/paginas/on-se%C3%B1as/on-se%C3%B1as.html'">
+                  <img src="/imagenes/Inicio/manos.svg" alt="" />
+                  <span>Reconocimiento de Se&ntilde;as</span>
+                  <small>Usar camara para apoyo visual.</small>
+                </button>
 
-            </main>
-        </div>
+                <button class="card-ob card-manual" type="button" onclick="window.location.href='../off-se%C3%B1as/off-se%C3%B1as.html'">
+                  <img src="/imagenes/Inicio/chat.svg" alt="" />
+                  <span>Atencion manual</span>
+                  <small>Continuar sin reconocimiento.</small>
+                </button>
+              </div>
+            </aside>
+          </section>
 
+        </main>
+      </div>
     </div>
 
     <script>
-        fetch("/header-footer/header/header.html")
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById("header").innerHTML = html;
-            });
+      fetch("/header-footer/header/header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header").innerHTML = html;
+          const ruta = window.location.pathname.toLowerCase();
+          document.querySelectorAll(".header-link").forEach((link) => link.classList.remove("header-link-active"));
+          const activo = ruta.includes("/paginas/citas/") ? "citas" : "inicio";
+          document.querySelector(`[data-nav="${activo}"]`)?.classList.add("header-link-active");
+        });
 
-        fetch("/header-footer/footer/footer.html")
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById("footer").innerHTML = html;
-            });
+      fetch("/header-footer/footer/footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        });
     </script>
-</body>
-
-
-
-</body>
-
+  </body>
 </html>
