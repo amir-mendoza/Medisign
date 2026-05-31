@@ -363,7 +363,7 @@ button {
 
 .paciente-card {
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr) auto;
+  grid-template-columns: 72px minmax(0, 1fr) minmax(170px, auto);
   gap: 14px;
   align-items: center;
   padding: 14px;
@@ -378,21 +378,94 @@ button {
   display: block;
 }
 
+.paciente-link {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--texto);
+}
+
 .paciente-card span {
   font-size: 13px;
+  margin-top: 3px;
 }
 
 .paciente-card small {
   margin-top: 4px;
 }
 
-.hora {
+.orden {
   padding: 10px;
   border-radius: 8px;
   background: var(--panel-suave);
   color: var(--verde-oscuro);
-  font-weight: 800;
   text-align: center;
+}
+
+.orden span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.orden strong {
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.estado-atencion {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+}
+
+.estado-badge {
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #edf2f2;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.estado-badge[data-estado="En proceso"] {
+  background: #e8f5f3;
+  color: var(--verde);
+}
+
+.estado-badge[data-estado="Atendido"] {
+  background: #eaf0ff;
+  color: var(--azul);
+}
+
+.estado-badge[data-estado="Falto"] {
+  background: #ffe9e9;
+  color: var(--rojo);
+}
+
+.estado-controles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.estado-controles button {
+  min-height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--texto);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.estado-controles button:hover {
+  border-color: var(--verde);
+  background: #eefaf8;
 }
 
 @media (max-width: 1120px) {

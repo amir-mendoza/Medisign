@@ -1,40 +1,52 @@
-const pacientes = {
-  lucia: {
-    nombre: "Lucia Fernandez",
+const pacientes = [
+  {
+    id: "lucia",
+    nombre: "Lucia Fernandez Quispe",
     dni: "71234567",
-    condicion: "Paciente sordomuda",
-    especialidad: "Medicina general",
-    motivo: "Dolor de garganta y malestar general"
+    tipo: "Paciente sordomudo",
+    area: "Dermatologia",
+    motivo: "Tratamiento de manchas"
   },
-  marco: {
-    nombre: "Marco Salazar",
+  {
+    id: "marco",
+    nombre: "Marco Salazar Rojas",
     dni: "76543210",
-    condicion: "Paciente regular",
-    especialidad: "Neumologia",
-    motivo: "Evaluacion respiratoria"
+    tipo: "Paciente regular",
+    area: "Dermatologia",
+    motivo: "Revision dermatologica"
   },
-  rosa: {
-    nombre: "Rosa Huaman",
+  {
+    id: "rosa",
+    nombre: "Rosa Huaman Torres",
     dni: "73450192",
-    condicion: "Paciente sordomuda",
-    especialidad: "Dermatologia",
-    motivo: "Irritacion en piel"
+    tipo: "Paciente sordomudo",
+    area: "Dermatologia",
+    motivo: "Acne severo"
   },
-  diego: {
-    nombre: "Diego Ramos",
+  {
+    id: "diego",
+    nombre: "Diego Ramos Castillo",
     dni: "70124590",
-    condicion: "Paciente regular",
-    especialidad: "Medicina general",
-    motivo: "Primera consulta"
+    tipo: "Paciente regular",
+    area: "Dermatologia",
+    motivo: "Limpieza facial"
+  },
+  {
+    id: "ana",
+    nombre: "Ana Paula Cardenas Vega",
+    dni: "78451236",
+    tipo: "Paciente regular",
+    area: "Dermatologia",
+    motivo: "Peeling quimico"
+  },
+  {
+    id: "juan",
+    nombre: "Juan Carlos Perez Gomez",
+    dni: "79234118",
+    tipo: "Paciente sordomudo",
+    area: "Dermatologia",
+    motivo: "Exfoliacion"
   }
-};
-
-const agendaBase = [
-  ["09:00", "lucia"],
-  ["09:45", "marco"],
-  ["10:30", "rosa"],
-  ["11:15", "diego"],
-  ["12:00", "lucia"]
 ];
 
 const nombresMes = [
@@ -42,50 +54,86 @@ const nombresMes = [
   "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
 ];
 
-let fechaActiva = new Date(2026, 4, 28);
-let diaSeleccionado = 28;
+const estadosBase = ["Pendiente", "En proceso", "Atendido", "Falto"];
+const estadosAgenda = {};
+const hoy = new Date();
+let fechaActiva = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
+let diaSeleccionado = hoy.getDate();
 
-function getAgendaDelDia(dia) {
-  const cantidad = (dia % 4) + 2;
-  return agendaBase.slice(0, cantidad);
+function claveAgenda(dia, mes, anio, pacienteId, orden) {
+  return `${anio}-${mes + 1}-${dia}-${pacienteId}-${orden}`;
 }
 
-function getTipoDia(dia) {
-  const agenda = getAgendaDelDia(dia);
-  const tieneSenas = agenda.some(([, key]) => pacientes[key].condicion.includes("sordomuda"));
-  if (agenda.length >= 5) return "lleno";
-  if (tieneSenas) return "senas";
-  return "normal";
+function getAgendaDelDia(dia, mes, anio) {
+  const total = ((dia + mes + anio) % 4) + 2;
+  const inicio = (dia + mes) % pacientes.length;
+
+  return Array.from({ length: total }, (_, index) => {
+    const paciente = pacientes[(inicio + index) % pacientes.length];
+    const orden = index + 1;
+    const clave = claveAgenda(dia, mes, anio, paciente.id, orden);
+    const estado = estadosAgenda[clave] || estadosBase[index % estadosBase.length];
+
+    return { orden, paciente, estado, clave };
+  });
 }
 
-function etiquetaPaciente(paciente) {
-  if (paciente.condicion.includes("sordomuda")) {
+function etiquetaPaciente(tipo) {
+  if (tipo === "Paciente sordomudo") {
     return '<span class="etiqueta etiqueta-azul">Senas</span>';
   }
   return '<span class="etiqueta etiqueta-normal">Regular</span>';
 }
 
+function actualizarMetricas() {
+  const agenda = getAgendaDelDia(hoy.getDate(), hoy.getMonth(), hoy.getFullYear());
+  const sordomudos = agenda.filter(({ paciente }) => paciente.tipo === "Paciente sordomudo").length;
+  const pendientes = agenda.filter(({ estado }) => estado === "Pendiente" || estado === "En proceso").length;
+
+  document.querySelector("[data-metrica-hoy]").textContent = agenda.length;
+  document.querySelector("[data-metrica-pendientes]").textContent = pendientes;
+  document.querySelector("[data-metrica-sordomudos]").textContent = sordomudos;
+  document.querySelector("[data-metrica-confirmadas]").textContent = agenda.length + 4;
+}
+
 function renderAgenda(dia) {
   const titulo = document.querySelector("[data-dia-seleccionado]");
   const lista = document.querySelector("[data-lista-pacientes-dia]");
-  if (!titulo || !lista) return;
+  const mes = fechaActiva.getMonth();
+  const anio = fechaActiva.getFullYear();
+  const agenda = getAgendaDelDia(Number(dia), mes, anio);
 
-  const agenda = getAgendaDelDia(Number(dia));
-  titulo.textContent = `Dia ${dia} - ${agenda.length} pacientes asignados`;
-  lista.innerHTML = agenda.map(([hora, key]) => {
-    const paciente = pacientes[key];
-    return `
-      <a class="paciente-card" href="../pacientes/detalle-paciente.html?paciente=${key}">
-        <div class="hora">${hora}</div>
-        <div>
-          <strong>${paciente.nombre}</strong>
-          <span>${paciente.dni} - ${paciente.condicion}</span>
-          <small>${paciente.especialidad}: ${paciente.motivo}</small>
+  titulo.textContent = `Dia ${dia} - ${agenda.length} pacientes de Dermatologia`;
+  lista.innerHTML = agenda.map(({ orden, paciente, estado, clave }) => `
+    <article class="paciente-card" data-clave="${clave}">
+      <div class="orden">
+        <span>Orden</span>
+        <strong>${orden}</strong>
+      </div>
+      <div>
+        <a class="paciente-link" href="../pacientes/detalle-paciente.html?paciente=${paciente.id}">${paciente.nombre}</a>
+        <span>DNI: ${paciente.dni}</span>
+        <span>Tipo: ${paciente.tipo}</span>
+        <span>Area: ${paciente.area}</span>
+        <small>Motivo: ${paciente.motivo}</small>
+      </div>
+      <div class="estado-atencion">
+        ${etiquetaPaciente(paciente.tipo)}
+        <strong class="estado-badge" data-estado="${estado}">${estado}</strong>
+        <div class="estado-controles">
+          ${estadosBase.map((item) => `<button type="button" data-clave="${clave}" data-estado-opcion="${item}">${item}</button>`).join("")}
         </div>
-        ${etiquetaPaciente(paciente)}
-      </a>
-    `;
-  }).join("");
+      </div>
+    </article>
+  `).join("");
+
+  lista.querySelectorAll("[data-estado-opcion]").forEach((boton) => {
+    boton.addEventListener("click", () => {
+      estadosAgenda[boton.dataset.clave] = boton.dataset.estadoOpcion;
+      renderAgenda(dia);
+      actualizarMetricas();
+    });
+  });
 }
 
 function renderCalendario() {
@@ -95,16 +143,13 @@ function renderCalendario() {
   const primerDia = new Date(year, month, 1).getDay();
   const inicioLunes = (primerDia + 6) % 7;
   const contenedor = document.querySelector("[data-calendario-dias]");
-  const titulo = document.querySelector("[data-calendario-titulo]");
-  const periodo = document.querySelector("[data-calendario-periodo]");
-  const total = document.querySelector("[data-calendario-total]");
 
-  if (!contenedor) return;
-
-  titulo.textContent = `Calendario de ${nombresMes[month]} ${year}`;
-  periodo.textContent = `${nombresMes[month]} ${year}`;
-  total.textContent = `${totalDias} dias`;
+  document.querySelector("[data-calendario-titulo]").textContent = `Calendario de ${nombresMes[month]} ${year}`;
+  document.querySelector("[data-calendario-periodo]").textContent = `${nombresMes[month]} ${year}`;
+  document.querySelector("[data-calendario-total]").textContent = `${totalDias} dias`;
   contenedor.innerHTML = "";
+
+  if (diaSeleccionado > totalDias) diaSeleccionado = totalDias;
 
   for (let i = 0; i < inicioLunes; i++) {
     const vacio = document.createElement("div");
@@ -113,15 +158,17 @@ function renderCalendario() {
   }
 
   for (let dia = 1; dia <= totalDias; dia++) {
+    const agenda = getAgendaDelDia(dia, month, year);
     const boton = document.createElement("button");
-    const agenda = getAgendaDelDia(dia);
     boton.className = "dia-calendario";
     boton.dataset.dia = String(dia);
-    boton.dataset.tipo = getTipoDia(dia);
+    boton.dataset.tipo = agenda.length >= 5 ? "lleno" : agenda.some(({ paciente }) => paciente.tipo === "Paciente sordomudo") ? "senas" : "normal";
     boton.innerHTML = `<strong>${dia}</strong><span>${agenda.length} pacientes</span>`;
 
     if (dia === diaSeleccionado) boton.classList.add("activo");
-    if (year === 2026 && month === 4 && dia === 28) boton.classList.add("hoy");
+    if (year === hoy.getFullYear() && month === hoy.getMonth() && dia === hoy.getDate()) {
+      boton.classList.add("hoy");
+    }
 
     boton.addEventListener("click", () => {
       diaSeleccionado = dia;
@@ -133,20 +180,20 @@ function renderCalendario() {
     contenedor.appendChild(boton);
   }
 
-  if (diaSeleccionado > totalDias) diaSeleccionado = totalDias;
   renderAgenda(diaSeleccionado);
 }
 
-document.querySelector("[data-mes-anterior]")?.addEventListener("click", () => {
+document.querySelector("[data-mes-anterior]").addEventListener("click", () => {
   fechaActiva = new Date(fechaActiva.getFullYear(), fechaActiva.getMonth() - 1, 1);
   diaSeleccionado = 1;
   renderCalendario();
 });
 
-document.querySelector("[data-mes-siguiente]")?.addEventListener("click", () => {
+document.querySelector("[data-mes-siguiente]").addEventListener("click", () => {
   fechaActiva = new Date(fechaActiva.getFullYear(), fechaActiva.getMonth() + 1, 1);
   diaSeleccionado = 1;
   renderCalendario();
 });
 
+actualizarMetricas();
 renderCalendario();

@@ -23,7 +23,7 @@
         <nav class="nav-doctor">
           <a href="../panel/panel-doctor.html">Panel</a>
           <a class="activo" href="detalle-paciente.html">Paciente</a>
-          <a href="../traductor/traductor-senas.html">Traductor de senas</a>
+          <a href="../traductor/traductor-senas.html">Traductor de Señas</a>
           <a href="../../Login/login.html">Cerrar sesion</a>
         </nav>
         <div class="menu-ayuda">
@@ -81,37 +81,122 @@
               <div class="historial" data-pendientes></div>
             </article>
 
-            <article class="tarjeta">
-              <div class="tarjeta-cabecera">
+            <article class="tarjeta anotaciones-medicas">
+              <div class="tarjeta-cabecera anotaciones-cabecera">
                 <div>
                   <h3>Anotaciones medicas</h3>
-                  <p>Notas visuales con opciones para editar o borrar.</p>
+                  <p>Archivos clinicos con vista previa y acciones.</p>
                 </div>
+                <button class="boton boton-primario" type="button" data-nueva-anotacion>+ Nueva Anotación</button>
               </div>
-              <div class="notas">
-                <div class="nota">
-                  <p>Usar lenguaje claro y confirmar que el paciente comprendio las indicaciones.</p>
-                  <div class="nota-acciones">
-                    <button type="button" data-action="edit">Editar</button>
-                    <button type="button" data-action="delete">Borrar</button>
-                  </div>
-                </div>
-                <div class="nota">
-                  <p>Revisar si existe alergia antes de indicar medicacion.</p>
-                  <div class="nota-acciones">
-                    <button type="button" data-action="edit">Editar</button>
-                    <button type="button" data-action="delete">Borrar</button>
-                  </div>
-                </div>
+
+              <div class="anotaciones-toolbar">
+                <button class="vista-btn activo" type="button" data-view="rows">Vista de filas</button>
+                <button class="vista-btn" type="button" data-view="columns">Vista de columnas</button>
+                <button class="vista-btn" type="button" data-view="grouped">Vista agrupada</button>
               </div>
-              <div class="editor-nota">
-                <textarea placeholder="Nueva anotacion para futuras consultas..."></textarea>
-                <button class="boton boton-primario" type="button">Guardar anotacion visual</button>
+
+              <div class="explorador-anotaciones">
+                <div class="archivos-panel">
+                  <div class="archivos-lista vista-filas" data-archivos-lista></div>
+                </div>
+
+                <aside class="preview-panel" data-preview-panel>
+                  <span class="etiqueta etiqueta-azul">Preview</span>
+                  <h4 data-preview-titulo>Seleccione una anotación</h4>
+                  <p data-preview-meta>La vista previa aparecerá aquí.</p>
+                  <div class="preview-detalle">
+                    <strong>Diagnóstico resumido</strong>
+                    <p data-preview-diagnostico>-</p>
+                  </div>
+                  <div class="preview-detalle">
+                    <strong>Descripción</strong>
+                    <p data-preview-descripcion>-</p>
+                  </div>
+                  <div class="preview-detalle">
+                    <strong>Doctor responsable</strong>
+                    <p data-preview-doctor>-</p>
+                  </div>
+                  <div class="preview-acciones">
+                    <button class="boton boton-secundario" type="button" data-ver-anotacion>Ver</button>
+                    <button class="boton boton-secundario" type="button" data-editar-anotacion>Editar</button>
+                    <button class="boton boton-secundario boton-peligro" type="button" data-eliminar-anotacion>Eliminar</button>
+                  </div>
+                </aside>
               </div>
             </article>
           </section>
         </section>
       </main>
+    </div>
+
+    <div class="modal oculto" data-modal-anotacion>
+      <div class="modal-contenido">
+        <div class="modal-cabecera">
+          <div>
+            <h3 data-modal-titulo>Nueva Anotación</h3>
+            <p>Documento médico archivado en el historial del paciente.</p>
+          </div>
+          <button class="cerrar-modal" type="button" data-cerrar-modal>×</button>
+        </div>
+
+        <form class="form-anotacion" data-form-anotacion>
+          <label>
+            Título
+            <input type="text" name="titulo" required placeholder="Control dermatológico inicial" />
+          </label>
+          <label>
+            Fecha
+            <input type="date" name="fecha" required />
+          </label>
+          <label>
+            Descripción médica
+            <textarea name="descripcion" required placeholder="Observaciones completas de la consulta..."></textarea>
+          </label>
+          <label>
+            Diagnóstico
+            <textarea name="diagnostico" required></textarea>
+          </label>
+          <label>
+            Tratamiento recomendado
+            <textarea name="tratamiento" required></textarea>
+          </label>
+          <label>
+            Observaciones adicionales
+            <textarea name="observaciones"></textarea>
+          </label>
+          <label>
+            Estado
+            <select name="estado" required>
+              <option>Pendiente</option>
+              <option>En seguimiento</option>
+              <option>Finalizado</option>
+            </select>
+          </label>
+          <label>
+            Doctor responsable
+            <input type="text" name="doctor" required value="Dr. Carlos Rivas" />
+          </label>
+
+          <div class="modal-acciones">
+            <button class="boton boton-secundario" type="button" data-cancelar-modal>Cancelar</button>
+            <button class="boton boton-primario" type="submit">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal oculto" data-modal-ver>
+      <div class="modal-contenido modal-lectura">
+        <div class="modal-cabecera">
+          <div>
+            <h3 data-ver-titulo>Archivo médico</h3>
+            <p data-ver-meta>Detalle completo</p>
+          </div>
+          <button class="cerrar-modal" type="button" data-cerrar-ver>×</button>
+        </div>
+        <div class="lectura-archivo" data-ver-contenido></div>
+      </div>
     </div>
     <script src="detalle-paciente.js"></script>
   </body>

@@ -31,6 +31,10 @@ textarea {
   font: inherit;
 }
 
+button {
+  border: 0;
+}
+
 .doctor-layout {
   min-height: 100vh;
   display: grid;
@@ -157,6 +161,34 @@ textarea {
   font-size: 12px;
 }
 
+.estado-consulta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.estado-consulta article {
+  padding: 16px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.estado-consulta span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.estado-consulta strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 16px;
+}
+
 .traductor-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
@@ -237,18 +269,24 @@ textarea {
 }
 
 .traduccion {
+  margin-top: 14px;
   padding: 16px;
   border-radius: 8px;
   background: var(--panel-suave);
   border: 1px solid var(--linea);
 }
 
-.traduccion h4 {
+.traduccion-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   margin-bottom: 10px;
 }
 
 .traduccion p {
   line-height: 1.7;
+  font-weight: 600;
 }
 
 .frases {
@@ -268,17 +306,86 @@ textarea {
   font-weight: 800;
 }
 
-.editor-nota {
-  margin-top: 12px;
+.frases button:hover,
+.boton-secundario:hover {
+  border-color: #99d3cd;
+  background: #eefaf8;
 }
 
-.editor-nota textarea {
+.boton-secundario,
+.boton-principal {
+  min-height: 42px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.boton-secundario {
+  padding: 0 12px;
+  border: 1px solid var(--linea);
+  background: #ffffff;
+  color: var(--verde);
+}
+
+.boton-principal {
+  background: var(--verde);
+  color: #ffffff;
+}
+
+.mensaje-doctor {
+  display: grid;
+  gap: 10px;
+}
+
+.frases-doctor {
+  margin-top: 0;
+}
+
+.acciones-doctor {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.acciones-doctor .boton-secundario,
+.acciones-doctor .boton-principal {
   width: 100%;
-  min-height: 110px;
+}
+
+.acciones-doctor [data-microfono][data-activo="true"] {
+  border-color: var(--verde);
+  background: #e8f5f3;
+  color: #07534e;
+}
+
+.mensaje-doctor label {
+  font-weight: 800;
+}
+
+.mensaje-doctor textarea {
+  width: 100%;
+  min-height: 210px;
   padding: 12px;
   border: 1px solid var(--linea);
   border-radius: 8px;
   resize: vertical;
+}
+
+.panel-flujo {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--linea);
+  background: var(--panel-suave);
+}
+
+.panel-flujo h4 {
+  margin-bottom: 8px;
+}
+
+.panel-flujo p {
+  color: var(--muted);
+  line-height: 1.6;
 }
 
 @keyframes pulsoCamara {
@@ -295,7 +402,8 @@ textarea {
 
 @media (max-width: 1120px) {
   .doctor-layout,
-  .traductor-grid {
+  .traductor-grid,
+  .estado-consulta {
     grid-template-columns: 1fr;
   }
 
@@ -322,4 +430,9 @@ textarea {
   .frases {
     grid-template-columns: 1fr;
   }
+
+  .acciones-doctor {
+    grid-template-columns: 1fr;
+  }
+
 }
