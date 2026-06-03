@@ -1,9 +1,11 @@
+// ==================== ELEMENTOS DEL DOM DE LA PANTALLA DEL PACIENTE ====================
 const textoPaciente = document.querySelector("[data-texto-paciente]");
 const fechaPaciente = document.querySelector("[data-fecha-paciente]");
 const avatar = document.querySelector("[data-avatar]");
 const detenerAnimacion = document.querySelector("[data-detener-animacion]");
 const limpiarMensaje = document.querySelector("[data-limpiar-mensaje]");
 
+// ==================== RENDER DEL MENSAJE ENVIADO POR EL DOCTOR ====================
 const renderMensaje = ({ mensaje, fecha }) => {
   if (!mensaje) return;
 
@@ -14,12 +16,14 @@ const renderMensaje = ({ mensaje, fecha }) => {
   })}`;
 };
 
+// ==================== CARGA DEL ULTIMO MENSAJE GUARDADO ====================
 const ultimoMensaje = localStorage.getItem("medisignMensajeDoctor");
 
 if (ultimoMensaje) {
   renderMensaje(JSON.parse(ultimoMensaje));
 }
 
+// ==================== CANAL EN TIEMPO REAL ENTRE VENTANAS ====================
 if ("BroadcastChannel" in window) {
   const canal = new BroadcastChannel("medisign-paciente");
   canal.addEventListener("message", (event) => renderMensaje(event.data));
@@ -31,6 +35,7 @@ window.addEventListener("storage", (event) => {
   }
 });
 
+// ==================== CONTROLES DE LA PANTALLA DEL PACIENTE ====================
 detenerAnimacion.addEventListener("click", () => {
   avatar.classList.toggle("detener");
   detenerAnimacion.textContent = avatar.classList.contains("detener") ? "Reanudar animacion" : "Detener animacion";

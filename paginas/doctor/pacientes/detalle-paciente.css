@@ -1,4 +1,5 @@
 :root {
+  /* ==================== VARIABLES DE COLOR DEL MODULO PACIENTE ==================== */
   --fondo: #eef7f5;
   --panel: #ffffff;
   --panel-suave: #f7fbfb;
@@ -11,6 +12,7 @@
 }
 
 * {
+  /* ==================== RESETEO GENERAL ==================== */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -36,12 +38,14 @@ select {
 }
 
 .doctor-layout {
+  /* ==================== LAYOUT BASE: MENU + CONTENIDO ==================== */
   min-height: 100vh;
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
 }
 
 .doctor-menu {
+  /* ==================== MENU LATERAL DEL DOCTOR ==================== */
   position: sticky;
   top: 0;
   height: 100vh;
@@ -117,6 +121,7 @@ select {
 }
 
 .cabecera {
+  /* ==================== CABECERA DEL PACIENTE ==================== */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -138,6 +143,7 @@ select {
 }
 
 .boton {
+  /* ==================== BOTONES REUTILIZABLES ==================== */
   min-height: 42px;
   border-radius: 8px;
   padding: 0 14px;
@@ -170,6 +176,7 @@ select {
 }
 
 .tarjeta {
+  /* ==================== TARJETAS BASE DEL HISTORIAL ==================== */
   padding: 20px;
   border: 1px solid var(--linea);
   border-radius: 8px;
@@ -210,6 +217,7 @@ select {
 }
 
 .perfil-paciente-grid {
+  /* ==================== PERFIL, DIAGNOSTICO E HISTORIAL ==================== */
   display: grid;
   grid-template-columns: 340px minmax(0, 1fr);
   gap: 18px;
@@ -262,8 +270,12 @@ select {
 }
 
 .historial {
+  /* Lista con scroll interno para que no alargue toda la pagina */
   display: grid;
   gap: 14px;
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 6px;
 }
 
 .historial-item {
@@ -292,7 +304,14 @@ select {
 }
 
 .anotaciones-medicas {
+  /* ==================== ANOTACIONES MEDICAS: ARCHIVOS + PREVIEW ==================== */
   position: relative;
+  grid-column: 1 / -1;
+}
+
+.recetas-medicas {
+  /* ==================== RECETAS MEDICAS: RECETAS POR PACIENTE ==================== */
+  grid-column: 1 / -1;
 }
 
 .anotaciones-cabecera {
@@ -323,17 +342,39 @@ select {
 }
 
 .explorador-anotaciones {
+  /* Columnas: lista de archivos y panel de preview */
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 460px);
+  gap: 18px;
+}
+
+.recetas-grid {
+  /* Columnas: lista de recetas y panel de preview */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 460px);
+  gap: 18px;
 }
 
 .archivos-lista {
+  /* Scroll interno de anotaciones */
   display: grid;
   gap: 10px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 6px;
 }
 
-.archivo-item {
+.recetas-lista {
+  /* Scroll interno de recetas */
+  display: grid;
+  gap: 10px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.archivo-item,
+.receta-item {
   border: 1px solid var(--linea);
   border-radius: 8px;
   background: #ffffff;
@@ -342,10 +383,55 @@ select {
 }
 
 .archivo-item:hover,
-.archivo-item.activo {
+.archivo-item.activo,
+.receta-item:hover,
+.receta-item.activo {
   border-color: var(--verde);
   background: #eefaf8;
   transform: translateY(-1px);
+}
+
+.receta-item {
+  padding: 14px;
+}
+
+.receta-item-cabecera {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.receta-item h4 {
+  font-size: 16px;
+}
+
+.receta-item p,
+.receta-item small,
+.receta-medicamentos-preview {
+  color: var(--muted);
+}
+
+.receta-item small {
+  display: block;
+  margin-top: 3px;
+}
+
+.receta-tabla-mini {
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.receta-tabla-mini th,
+.receta-tabla-mini td {
+  padding: 8px;
+  border: 1px solid var(--linea);
+  text-align: left;
+}
+
+.receta-tabla-mini th {
+  background: var(--panel-suave);
 }
 
 .archivo-contenido {
@@ -424,13 +510,34 @@ select {
 }
 
 .preview-panel {
+  /* ==================== PANEL DE VISTA PREVIA ==================== */
   min-height: 280px;
+  max-height: 520px;
+  overflow-y: auto;
   border: 1px solid var(--linea);
   border-radius: 8px;
   padding: 16px;
   background: var(--panel-suave);
   position: sticky;
   top: 18px;
+}
+
+.receta-preview {
+  min-height: 250px;
+}
+
+.receta-medicamentos-preview {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.receta-medicamentos-preview span {
+  display: block;
+  padding: 8px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: #ffffff;
 }
 
 .preview-panel h4 {
@@ -449,12 +556,13 @@ select {
 
 .preview-acciones {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
   margin-top: 16px;
 }
 
 .modal {
+  /* ==================== MODALES GENERALES ==================== */
   position: fixed;
   inset: 0;
   z-index: 1000;
@@ -495,14 +603,17 @@ select {
   font-size: 24px;
 }
 
-.form-anotacion {
+.form-anotacion,
+.form-receta {
+  /* ==================== FORMULARIOS DE ANOTACION Y RECETA ==================== */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
   padding: 20px;
 }
 
-.form-anotacion label {
+.form-anotacion label,
+.form-receta label {
   display: grid;
   gap: 6px;
   font-weight: 700;
@@ -510,7 +621,10 @@ select {
 
 .form-anotacion input,
 .form-anotacion textarea,
-.form-anotacion select {
+.form-anotacion select,
+.form-receta input,
+.form-receta textarea,
+.form-receta select {
   width: 100%;
   border: 1px solid var(--linea);
   border-radius: 8px;
@@ -518,7 +632,8 @@ select {
   color: var(--texto);
 }
 
-.form-anotacion textarea {
+.form-anotacion textarea,
+.form-receta textarea {
   min-height: 95px;
   resize: vertical;
 }
@@ -527,8 +642,68 @@ select {
 .form-anotacion label:nth-child(4),
 .form-anotacion label:nth-child(5),
 .form-anotacion label:nth-child(6),
+.campo-completo,
 .modal-acciones {
   grid-column: 1 / -1;
+}
+
+.modal-receta {
+  width: min(1040px, 100%);
+}
+
+.medicamentos-form {
+  /* ==================== FORMULARIO DINAMICO DE MEDICAMENTOS ==================== */
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: var(--panel-suave);
+}
+
+.medicamentos-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.medicamentos-cabecera p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.medicamentos-lista-form {
+  display: grid;
+  gap: 12px;
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.medicamento-form-item {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.campo-ayuda {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.medicamento-form-item label:last-of-type {
+  grid-column: 1 / -1;
+}
+
+.medicamento-form-item .boton-peligro {
+  grid-column: 1 / -1;
+  justify-self: end;
 }
 
 .modal-acciones {
@@ -538,6 +713,7 @@ select {
 }
 
 .lectura-archivo {
+  /* ==================== VISTA DE LECTURA / IMPRESION PREVIA ==================== */
   display: grid;
   gap: 14px;
   padding: 20px;
@@ -550,10 +726,32 @@ select {
   background: var(--panel-suave);
 }
 
+.lectura-archivo table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.lectura-archivo th,
+.lectura-archivo td {
+  padding: 8px;
+  border: 1px solid var(--linea);
+  text-align: left;
+  vertical-align: top;
+}
+
+.lectura-archivo th {
+  background: #ffffff;
+  color: var(--texto);
+}
+
 @media (max-width: 1120px) {
+  /* ==================== RESPONSIVE TABLET ==================== */
   .doctor-layout,
   .perfil-paciente-grid,
-  .explorador-anotaciones {
+  .explorador-anotaciones,
+  .recetas-grid {
     grid-template-columns: 1fr;
   }
 
@@ -568,6 +766,7 @@ select {
 }
 
 @media (max-width: 760px) {
+  /* ==================== RESPONSIVE MOVIL ==================== */
   .doctor-contenido {
     padding: 20px;
   }
@@ -581,7 +780,9 @@ select {
     grid-template-columns: 1fr;
   }
 
-  .form-anotacion {
+  .form-anotacion,
+  .form-receta,
+  .medicamento-form-item {
     grid-template-columns: 1fr;
   }
 }

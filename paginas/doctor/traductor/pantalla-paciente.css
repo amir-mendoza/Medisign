@@ -1,4 +1,5 @@
 :root {
+  /* ==================== VARIABLES DE COLOR DE PANTALLA PACIENTE ==================== */
   --fondo: #eef7f5;
   --panel: #ffffff;
   --texto: #173436;
@@ -8,6 +9,7 @@
 }
 
 * {
+  /* ==================== RESETEO GENERAL ==================== */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -25,6 +27,7 @@ button {
 }
 
 .pantalla {
+  /* ==================== LAYOUT: AVATAR + MENSAJE ==================== */
   min-height: 100vh;
   display: grid;
   grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1fr);
@@ -35,6 +38,7 @@ button {
 
 .avatar-panel,
 .mensaje-panel {
+  /* ==================== PANELES PRINCIPALES ==================== */
   min-height: calc(100vh - 64px);
   border: 1px solid var(--linea);
   border-radius: 8px;
@@ -49,6 +53,7 @@ button {
 }
 
 .avatar-senas {
+  /* ==================== AVATAR ANIMADO DE SENAS ==================== */
   position: relative;
   width: min(420px, 100%);
   min-height: 560px;
@@ -105,6 +110,7 @@ button {
 }
 
 .mensaje-panel {
+  /* ==================== TEXTO GRANDE PARA EL PACIENTE ==================== */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,6 +157,7 @@ p {
 }
 
 .acciones-paciente {
+  /* ==================== BOTONES DE CONTROL DEL AVATAR ==================== */
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -184,6 +191,7 @@ p {
 }
 
 @media (max-width: 920px) {
+  /* ==================== RESPONSIVE PANTALLA PEQUENA ==================== */
   .pantalla {
     grid-template-columns: 1fr;
   }

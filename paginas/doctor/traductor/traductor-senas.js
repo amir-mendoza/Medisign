@@ -1,3 +1,4 @@
+// ==================== ELEMENTOS DEL DOM DEL TRADUCTOR ====================
 const salida = document.querySelector("[data-traduccion]");
 const estadoCamara = document.querySelector("[data-estado-camara]");
 const botonVoz = document.querySelector("[data-reproducir-voz]");
@@ -7,6 +8,7 @@ const ultimoMensaje = document.querySelector("[data-ultimo-mensaje]");
 const botonMicrofono = document.querySelector("[data-microfono]");
 const botonPantallaPaciente = document.querySelector("[data-pantalla-paciente]");
 
+// ==================== ESTADO DE LA PANTALLA EXTERNA Y MICROFONO ====================
 let ventanaPaciente = null;
 let microfonoActivo = false;
 let canalPaciente = null;
@@ -15,12 +17,14 @@ if ("BroadcastChannel" in window) {
   canalPaciente = new BroadcastChannel("medisign-paciente");
 }
 
+// ==================== TEXTO SIMULADO DEL PACIENTE ====================
 const mensajePacienteSimulado = [
   "Tengo dolor en el rostro desde hace tres dias.",
   "Tambien siento ardor cuando me lavo la cara.",
   "Quiero saber si debo suspender la crema que estoy usando."
 ];
 
+// ==================== VOZ: TEXTO RECONOCIDO HACIA AUDIO ====================
 const leerEnVozAlta = (texto) => {
   if (!texto || !("speechSynthesis" in window)) return;
 
@@ -31,6 +35,7 @@ const leerEnVozAlta = (texto) => {
   window.speechSynthesis.speak(voz);
 };
 
+// ==================== COMUNICACION CON PANTALLA EXTERNA DEL PACIENTE ====================
 const publicarMensajeDoctor = (mensaje) => {
   if (!mensaje) return;
 
@@ -68,6 +73,7 @@ const enviarAPantallaPaciente = () => {
   publicarMensajeDoctor(mensaje);
 };
 
+// ==================== SIMULACION DE RECONOCIMIENTO DE SENAS ====================
 const simularReconocimientoPaciente = () => {
   let indice = 0;
   let texto = "";
@@ -88,10 +94,12 @@ const simularReconocimientoPaciente = () => {
   }, 1200);
 };
 
+// ==================== EVENTOS DEL PACIENTE: REPRODUCIR VOZ ====================
 botonVoz?.addEventListener("click", () => {
   leerEnVozAlta(salida?.textContent.trim() || "");
 });
 
+// ==================== EVENTOS DEL DOCTOR: PANTALLA, TEXTO, FRASES Y MICROFONO ====================
 botonPantallaPaciente?.addEventListener("click", () => {
   abrirPantallaPaciente();
   publicarMensajeDoctor(mensajeDoctor?.value.trim() || "Pantalla del paciente lista para recibir indicaciones.");
@@ -138,6 +146,7 @@ formDoctor?.addEventListener("submit", (event) => {
   enviarAPantallaPaciente();
 });
 
+// ==================== INICIALIZACION DEL TRADUCTOR ====================
 window.addEventListener("load", () => {
   window.setTimeout(simularReconocimientoPaciente, 900);
 });

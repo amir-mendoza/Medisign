@@ -1,3 +1,4 @@
+// ==================== DATOS SIMULADOS DE PACIENTES ====================
 const pacientes = [
   {
     id: "lucia",
@@ -49,6 +50,7 @@ const pacientes = [
   }
 ];
 
+// ==================== CONFIGURACION DEL CALENDARIO ====================
 const nombresMes = [
   "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
   "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
@@ -60,6 +62,7 @@ const hoy = new Date();
 let fechaActiva = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
 let diaSeleccionado = hoy.getDate();
 
+// ==================== GENERACION DE AGENDA POR DIA ====================
 function claveAgenda(dia, mes, anio, pacienteId, orden) {
   return `${anio}-${mes + 1}-${dia}-${pacienteId}-${orden}`;
 }
@@ -78,6 +81,7 @@ function getAgendaDelDia(dia, mes, anio) {
   });
 }
 
+// ==================== METRICAS DEL PANEL ====================
 function etiquetaPaciente(tipo) {
   if (tipo === "Paciente sordomudo") {
     return '<span class="etiqueta etiqueta-azul">Senas</span>';
@@ -96,6 +100,7 @@ function actualizarMetricas() {
   document.querySelector("[data-metrica-confirmadas]").textContent = agenda.length + 4;
 }
 
+// ==================== LISTA DE PACIENTES DEL DIA SELECCIONADO ====================
 function renderAgenda(dia) {
   const titulo = document.querySelector("[data-dia-seleccionado]");
   const lista = document.querySelector("[data-lista-pacientes-dia]");
@@ -136,6 +141,7 @@ function renderAgenda(dia) {
   });
 }
 
+// ==================== CALENDARIO MENSUAL FUNCIONAL ====================
 function renderCalendario() {
   const year = fechaActiva.getFullYear();
   const month = fechaActiva.getMonth();
@@ -183,6 +189,7 @@ function renderCalendario() {
   renderAgenda(diaSeleccionado);
 }
 
+// ==================== EVENTOS DE NAVEGACION ENTRE MESES ====================
 document.querySelector("[data-mes-anterior]").addEventListener("click", () => {
   fechaActiva = new Date(fechaActiva.getFullYear(), fechaActiva.getMonth() - 1, 1);
   diaSeleccionado = 1;
@@ -195,5 +202,6 @@ document.querySelector("[data-mes-siguiente]").addEventListener("click", () => {
   renderCalendario();
 });
 
+// ==================== INICIALIZACION DEL PANEL ====================
 actualizarMetricas();
 renderCalendario();

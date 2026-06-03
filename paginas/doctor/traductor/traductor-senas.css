@@ -1,4 +1,5 @@
 :root {
+  /* ==================== VARIABLES DE COLOR DEL TRADUCTOR ==================== */
   --fondo: #eef7f5;
   --panel: #ffffff;
   --panel-suave: #f7fbfb;
@@ -9,6 +10,7 @@
 }
 
 * {
+  /* ==================== RESETEO GENERAL ==================== */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -36,12 +38,14 @@ button {
 }
 
 .doctor-layout {
+  /* ==================== LAYOUT BASE: MENU + CONTENIDO ==================== */
   min-height: 100vh;
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
 }
 
 .doctor-menu {
+  /* ==================== MENU LATERAL DEL DOCTOR ==================== */
   position: sticky;
   top: 0;
   height: 100vh;
@@ -117,6 +121,7 @@ button {
 }
 
 .cabecera {
+  /* ==================== CABECERA DEL MODULO ==================== */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -162,6 +167,7 @@ button {
 }
 
 .estado-consulta {
+  /* ==================== INDICADORES DEL FLUJO DE TRADUCCION ==================== */
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
@@ -190,6 +196,7 @@ button {
 }
 
 .traductor-grid {
+  /* ==================== GRID: CAMARA DEL PACIENTE + PANEL DEL DOCTOR ==================== */
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
   gap: 18px;
@@ -231,6 +238,7 @@ button {
 }
 
 .camara-simulada {
+  /* ==================== AREA DE CAMARA / RECONOCIMIENTO DE SENAS ==================== */
   min-height: 420px;
   border-radius: 8px;
   border: 1px solid var(--linea);
@@ -269,6 +277,7 @@ button {
 }
 
 .traduccion {
+  /* ==================== TEXTO RECONOCIDO DEL PACIENTE ==================== */
   margin-top: 14px;
   padding: 16px;
   border-radius: 8px;
@@ -333,6 +342,7 @@ button {
 }
 
 .mensaje-doctor {
+  /* ==================== ENTRADA DEL DOCTOR HACIA PANTALLA EXTERNA ==================== */
   display: grid;
   gap: 10px;
 }
@@ -372,6 +382,7 @@ button {
 }
 
 .panel-flujo {
+  /* ==================== ULTIMO MENSAJE ENVIADO ==================== */
   margin-top: 14px;
   padding: 16px;
   border-radius: 8px;
@@ -401,6 +412,7 @@ button {
 }
 
 @media (max-width: 1120px) {
+  /* ==================== RESPONSIVE TABLET ==================== */
   .doctor-layout,
   .traductor-grid,
   .estado-consulta {
@@ -418,6 +430,7 @@ button {
 }
 
 @media (max-width: 760px) {
+  /* ==================== RESPONSIVE MOVIL ==================== */
   .doctor-contenido {
     padding: 20px;
   }
